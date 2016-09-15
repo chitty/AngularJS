@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="LunchFood">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Lunch Food</title>
+  </head>
+  <body>
+    <h1>Lunch Food</h1>
+    <div ng-controller="LunchFoodController">
+      <div>
+        Please list the items you usually eat for lunch separated by commas (,):
+        <br>
+        <input type="text" ng-model="foods">
+        <button type="button" ng-click="displayMessage()">Check If Too Much</button>
+      </div>
+      {{message}}
+    </div>
+  </body>
+</html>
