@@ -1,9 +1,9 @@
 (function () {
 'use strict';
 
-angular.module('LunchFood', [])
+angular.module('LunchCheck', [])
 
-.controller('LunchFoodController', function($scope) {
+.controller('LunchCheckController', function($scope) {
     $scope.message = ""
 
     $scope.displayMessage = function() {
