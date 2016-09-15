@@ -10,7 +10,8 @@
     <title>Lunch Check</title>
   </head>
   <body>
-    <div class="container" ng-controller="LunchCheckController">
+    <div class="container content" ng-controller="LunchCheckController">
+      <div class="jumbotron">
       <h1>Lunch Checker</h1>
         <p>
         This app checks the amount of food you're having for lunch to determine if it's too much or not. Please enter the dishes you usually have for lunch separated by commas.
@@ -24,11 +25,12 @@
                  class="form-control" ng-model="foods" ng-class="border_color">
         </div>
         <div class="form-group">
-          <button class="btn btn-default" ng-click="displayMessage()">Check If Too Much</button>
+          <button class="btn btn-primary" ng-click="displayMessage()">Check If Too Much</button>
         </div>
         <div class="form-group" ng-class="message_class">
             <strong>{{message}}</strong>
         </div>
+      </div>
     </div>
   </body> 
 </html>
