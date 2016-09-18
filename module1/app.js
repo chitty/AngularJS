@@ -2,8 +2,10 @@
 'use strict';
 
 angular.module('LunchCheck', [])
+.controller('LunchCheckController', LunchCheckController);
 
-.controller('LunchCheckController', function($scope) {
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope) {
     $scope.message = "";
     $scope.message_class = "";
     $scope.border_color = "";
@@ -36,6 +38,6 @@ angular.module('LunchCheck', [])
             }
         }
     };
-});
+};
 
 })();
