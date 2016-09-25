@@ -16,6 +16,10 @@ function ToBuyShoppingController(ShoppingListCheckOffService){
   toBuyList.buy = function(item) {
     ShoppingListCheckOffService.buy(item);
   }
+
+  toBuyList.isEmpty = function() {
+    return toBuyList.items.length === 0;
+  }
 }
 
 
@@ -24,6 +28,10 @@ function AlreadyBoughtShoppingController(ShoppingListCheckOffService) {
   var alreadyBoughtList = this;
 
   alreadyBoughtList.items = ShoppingListCheckOffService.getBought();
+
+  alreadyBoughtList.isEmpty = function() {
+    return alreadyBoughtList.items.length === 0;
+  }
 }
 
 

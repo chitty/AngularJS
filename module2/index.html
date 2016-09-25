@@ -29,7 +29,7 @@
            <div class="col-md-4 col-xs-2">
            </div>
          </div>
-         <div class="alert alert-success" role="alert" ng-if="toBuyList.items.length < 1"><b>Everything is bought!</b><br>Great job getting all the items.</div>
+         <div class="alert alert-success" role="alert" ng-if="toBuyList.isEmpty()"><b>Everything is bought!</b><br>Great job getting all the items.</div>
          </div>
 
 
@@ -39,7 +39,7 @@
          <ul>
            <li ng-repeat="itemBought in alreadyBoughtList.items">Bought {{itemBought.quantity}} {{itemBought.name}}</li>
          </ul>
-         <div class="alert alert-danger" role="alert" ng-if="alreadyBoughtList.items.length < 1"><b>Nothing bought yet.</b> <br>Why don't you try buying some of the items from the "To Buy" list?</div>
+         <div class="alert alert-danger" role="alert" ng-if="alreadyBoughtList.isEmpty()"><b>Nothing bought yet.</b> <br>Why don't you try buying some of the items from the "To Buy" list?</div>
         </div>
       </div>
     </div>
