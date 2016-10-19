@@ -1,0 +1,8 @@
+<h3>Found Items</h3>
+<ol>
+  <li ng-repeat="item in menu.found">
+    {{ item.description }}
+    <button ng-click="item.onRemove({index: $index});">Remove Item</button>
+  </li>
+</ol>
+<!-- <div class="error" ng-if="1==0">WARNING! WARNING! COOKIES DETECTED!</div> -->
