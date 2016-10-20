@@ -13,11 +13,21 @@ function FoundItemsDirective() {
     restrict: 'E',
     templateUrl: 'foundItems.html',
     scope: {
-      foundItems: '<'
-    }
+      found: '<foundItems',
+      title: '@title',
+      onRemove: '&'
+    },
+    controller: FoundItemsDirectiveController,
+    controllerAs: 'menu',
+    bindToController: true,
   };
 
   return ddo;
+}
+
+
+function FoundItemsDirectiveController(){
+  var menu = this;
 }
 
 
@@ -26,14 +36,35 @@ function NarrowItDownController($scope, MenuSearchService) {
   var menu = this;
 
   menu.getMatchedMenuItems = function (searchTerm) {
-    var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+    if (searchTerm === undefined || searchTerm.length == 0) {
+      menu.found = {};
+      updateFoundItems();
+    } else {
+      var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
-    promise.then(function (response) {
-      menu.found = response;
-    })
-    .catch(function (error) {
-      console.log("Something went terribly wrong.");
-    });
+      promise.then(function (response) {
+        menu.found = response;
+        updateFoundItems();
+      })
+      .catch(function (error) {
+        console.log("Something went terribly wrong.");
+      });
+    }
+  }
+
+  menu.removeItem = function(index) {
+    menu.found.splice(index, 1);
+    updateFoundItems();
+  }
+
+  function updateFoundItems() {
+    if (menu.found.length === undefined || menu.found.length === 0) {
+      menu.title = "Nothing found"
+    } else if (menu.found.length === 1) {
+      menu.title = menu.found.length + " item found";
+    } else {
+      menu.title = menu.found.length + " items found";
+    }
   }
 
 }

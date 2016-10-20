@@ -1,10 +1,9 @@
-<div ng-show="foundItems">
-  <h3>Found Items</h3>
-  <ol>
-    <li ng-repeat="item in foundItems">
-      {{ item.id }}. <b>{{ item.name }}</b> {{ item.description }}
-      <button ng-click="item.onRemove({index: $index});">Remove Item</button>
+<div>
+  <h3>{{menu.title}}</h3>
+  <ul>
+    <li ng-repeat="item in menu.found">
+      {{ item.short_name }}. <b>{{ item.name }}</b> {{ item.description }}
+      <button ng-click="menu.onRemove({index: $index});">Remove Item</button>
     </li>
-  </ol>
+  </ul>
 </div>
-<div class="error" ng-show="!foundItems">Nothing found!</div>
