@@ -29,9 +29,7 @@ function NarrowItDownController($scope, MenuSearchService) {
     var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
     promise.then(function (response) {
-      menu.found = response.data.menu_items;
-      console.log("NarrowItDownController: ")
-      console.log(menu.found);
+      menu.found = response;
     })
     .catch(function (error) {
       console.log("Something went terribly wrong.");
@@ -46,16 +44,16 @@ function MenuSearchService($filter, $http, ApiBasePath) {
   var service = this;
 
   service.getMatchedMenuItems = function(searchTerm) {
-    var response = $http({
+    var httpPromise = $http({
       method: "GET",
       url: (ApiBasePath + "/menu_items.json")
     })
 
-    //var full_menu = response.data.menu_items;
-    //var filtered_menu = $filter('filter')(full_menu, {description: searchTerm});
-
-    return response;
-
+    return httpPromise.then( function(response) {
+      var full_menu = response.data.menu_items;
+      var filtered_menu = $filter('filter')(full_menu, {description: searchTerm});
+      return filtered_menu;
+    })
   }
 }
 
