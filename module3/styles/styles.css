@@ -1,14 +1,12 @@
-h1 {
-  margin-bottom: 30px;
+.content {
+    padding-top: 60px;
 }
-input[type="text"] {
-  width: 200px;
-  float: left;
+
+.jumbotron {
+    padding-left: 10%;
+    padding-right: 10%;
 }
-.narrow-button {
-  float: left;
-  margin-left: 10px;
-}
+
 .loader {
   display: none;
   margin-left: 5px;
