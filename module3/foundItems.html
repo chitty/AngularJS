@@ -1,9 +1,13 @@
 <div>
   <h3>{{menu.title}}</h3>
-  <ul>
-    <li ng-repeat="item in menu.found">
-      {{ item.short_name }}. <b>{{ item.name }}</b> {{ item.description }}
+  <div class="row" ng-repeat="item in menu.found">
+    <div class="col-md-10 col-sm-10">
+      <h3>{{ item.short_name }}. {{ item.name }}</h3>
+      <h4>{{ item.description }}</h4>
+      {{ item.small_portion_name }} {{item.price_small | currency}} {{item.large_portion_name}} {{item.price_large | currency}}
+    </div>
+    <div class="col-md-2 col-sm-2">
       <button ng-click="menu.onRemove({index: $index});">Remove Item</button>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
