@@ -6,4 +6,4 @@ _Developed using Angular.js version: 1.5.8_
 
 ## New concepts used
 
-- Components / Modules
+- Components

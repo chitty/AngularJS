@@ -12,11 +12,28 @@ angular.module("NarrowItDownApp", [])
     title: '@title',
     onRemove: '&'    
   }
+})
+.component('itemsLoaderIndicator',{
+  templateUrl: 'loader/itemsloaderindicator.template.html',
+  controller: LoaderController
 });
 
+LoaderController.$injector = ['$rootScope']
+function LoaderController($rootScope) {
+  var $ctrl = this;
 
-NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
-function NarrowItDownController($scope, MenuSearchService) {
+  var cancelListener = $rootScope.$on('getmatchedmenuitems:processing', function(event, data){
+    $ctrl.showItemsLoader = data.on;
+  });
+
+  $ctrl.$onDestroy = function() {
+    cancelListener();
+  };
+}
+
+
+NarrowItDownController.$inject = ['$rootScope', 'MenuSearchService'];
+function NarrowItDownController($rootScope, MenuSearchService) {
   var menu = this;
 
   menu.getMatchedMenuItems = function (searchTerm) {
@@ -24,9 +41,11 @@ function NarrowItDownController($scope, MenuSearchService) {
       menu.found = {};
       updateFoundItems();
     } else {
+      $rootScope.$broadcast('getmatchedmenuitems:processing', {on: true});
       var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
       promise.then(function (response) {
+        $rootScope.$broadcast('getmatchedmenuitems:processing', {on: false});
         menu.found = response;
         updateFoundItems();
       })
