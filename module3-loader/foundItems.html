@@ -1,0 +1,14 @@
+<div>
+  <h2>{{$ctrl.title}}</h2>
+  <div class="row" ng-repeat="item in $ctrl.found">
+    <div class="col-md-10 col-sm-10">
+      <h3>{{ item.short_name }}. {{ item.name }}</h3>
+      <h4>{{ item.description }}</h4>
+      {{ item.small_portion_name }} {{item.price_small | currency}} {{item.large_portion_name}} {{item.price_large | currency}}
+    </div>
+    <div class="col-md-2 col-sm-2">
+      <button class="btn btn-danger" ng-click="$ctrl.onRemove({index: $index});">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Don't want this one!</button>
+    </div>
+  </div>
+</div>
