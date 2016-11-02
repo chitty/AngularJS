@@ -12,9 +12,18 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('home', {
     url: '/',
-    templateUrl: 'src/data/templates/home.template.html'
+    templateUrl: 'src/templates/home.template.html'
   })
-
+  .state('catList', {
+    url: '/cat-list',
+    templateUrl: 'src/templates/categories.template.html',
+    controller: 'MenuCategoriesController as catList',
+    resolve: {
+      categories: ['MenuDataService', function(MenuDataService) {
+        return MenuDataService.getAllCategories();
+      }]
+    }
+  })
 }
 
 })();
