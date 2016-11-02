@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="styles/style.css">   
     <title>Chinese Restaurant Menu</title>
   </head>
-  <body>
+  <body ng-app="MenuApp">
     <div class="container content">
       <div class="jumbotron">
       <h1>Chinese Restaurant Menu</h1>
         <p>
         Don't know what to eat? Try browsing by category, you'll probably find something interesting.
         </p>
+        <ui-view></ui-view>
       </div>
     </div>
   <script src="lib/angular.min.js"></script>
   <script src="lib/angular-ui-router.min.js"></script>
+  <script src="src/data/menudata.module.js"></script>
+  <script src="src/menuapp.module.js"></script>
+  <script src="src/routes.js"></script>
   </body> 
 </html>
