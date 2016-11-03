@@ -3,7 +3,7 @@
   <li class="active">Categories</li>
 </ol>
 
-<div class="row" ng-repeat="item in categoriesList.categories.data">
+<div class="row" ng-repeat="item in categoriesList.categories">
   <h4>
     <a ui-sref="items({categoryShortName:item.short_name})">
     {{item.short_name}}. {{item.name}}
