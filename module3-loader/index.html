@@ -3,10 +3,20 @@
   <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
   </head>
 <body ng-app="NarrowItDownApp">
+  <div class="container my_nav">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="../index.html">Home</a></li>
+      <li role="presentation"><a href="../module1/index.html">Lunch Checker</a></li>
+      <li role="presentation"><a href="../module2/index.html">Shopping List Check Off</a></li>
+      <li role="presentation" class="active"><a href="../module3/index.html">Search Chinese Menu</a></li>
+      <li role="presentation"><a href="../module4/index.html">Browse Chinese Menu</a></li>
+    </ul>
+  </div>
   <div class="container content" ng-controller="NarrowItDownController as menu">
     <div class="jumbotron">
       <h1>Narrow Down Your Chinese Menu Choice</h1>
@@ -28,9 +38,7 @@
       </found-items>
     </div>
   </div>
-
-  <script src="angular.min.js"></script>
+  <script src="../lib/angular.min.js"></script>
   <script src="app.js"></script>
-
 </body>
 </html>

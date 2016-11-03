@@ -3,10 +3,20 @@
   <head>
     <title>Shopping List Check Off</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="styles/style.css">
   </head>
 <body ng-app="ShoppingListCheckOff">
+  <div class="container my_nav">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="../index.html">Home</a></li>
+      <li role="presentation"><a href="../module1/index.html">Lunch Checker</a></li>
+      <li role="presentation" class="active"><a href="../module2/index.html">Shopping List Check Off</a></li>
+      <li role="presentation"><a href="../module3/index.html">Search Chinese Menu</a></li>
+      <li role="presentation"><a href="../module4/index.html">Browse Chinese Menu</a></li>
+    </ul>
+  </div>
   <div class="container content">
     <div class="jumbotron">
       <h1>Shopping List Check Off</h1>
@@ -23,7 +33,7 @@
          <div class="row">
            <div class="col-md-8 col-xs-10">
              <ul>
-               <li ng-repeat="item in toBuyList.items">Buy {{item.quantity}} {{item.name}} <button class="btn btn-primary btn-sm pull-right" ng-click="toBuyList.buy($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+               <li class="my_list" ng-repeat="item in toBuyList.items">Buy {{item.quantity}} {{item.name}} <button class="btn btn-primary btn-sm pull-right" ng-click="toBuyList.buy($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
              </ul>
            </div>
            <div class="col-md-4 col-xs-2">
@@ -37,14 +47,14 @@
         <div class="col-md-6" ng-controller="AlreadyBoughtShoppingController as alreadyBoughtList">
          <h2>Already Bought:</h2>
          <ul>
-           <li ng-repeat="itemBought in alreadyBoughtList.items">Bought {{itemBought.quantity}} {{itemBought.name}}</li>
+           <li class="my_list" ng-repeat="itemBought in alreadyBoughtList.items">Bought {{itemBought.quantity}} {{itemBought.name}}</li>
          </ul>
          <div class="alert alert-danger" role="alert" ng-if="alreadyBoughtList.isEmpty()"><b>Nothing bought yet.</b> <br>Why don't you try buying some of the items from the "To Buy" list?</div>
         </div>
       </div>
     </div>
   </div>
-  <script src="angular.min.js"></script>
+  <script src="../lib/angular.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
