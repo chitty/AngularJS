@@ -7,9 +7,8 @@ angular.module('MenuApp')
 
 MenuCategoriesController.$inject = ['categories'];
 function MenuCategoriesController(categories) {
-  console.log(">> MenuCategoriesController <<")
-  var catList = this;
-  catList.categories = categories;
+  var categoriesList = this;
+  categoriesList.categories = categories;
 }
 
 })();

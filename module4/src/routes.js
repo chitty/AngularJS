@@ -14,10 +14,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     url: '/',
     templateUrl: 'src/templates/home.template.html'
   })
-  .state('catList', {
-    url: '/cat-list',
+  .state('categories', {
+    url: '/categories',
     templateUrl: 'src/templates/categories.template.html',
-    controller: 'MenuCategoriesController as catList',
+    controller: 'MenuCategoriesController as categoriesList',
     resolve: {
       categories: ['MenuDataService', function(MenuDataService) {
         return MenuDataService.getAllCategories();
@@ -25,7 +25,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
   .state('items', {
-    url: '/items/{categoryShortName}',
+    url: '/categories/{categoryShortName}',
     templateUrl: 'src/templates/items.template.html',
     controller: 'MenuItemsController as items',
     resolve: {
