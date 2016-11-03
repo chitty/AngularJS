@@ -4,5 +4,9 @@
 </ol>
 
 <div class="row" ng-repeat="item in catList.categories.data">
-  <h4><a href="#">{{item.short_name}}. {{item.name}}</a></h4>
+  <h4>
+    <a ui-sref="items({categoryShortName:item.short_name})">
+    {{item.short_name}}. {{item.name}}
+    </a>
+  </h4>
 </div>
