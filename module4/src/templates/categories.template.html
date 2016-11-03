@@ -1,1 +1,8 @@
-TO DO: Categories Template
+<ol class="breadcrumb">
+  <li><a ui-sref="home">Home</a></li>
+  <li class="active">Categories</li>
+</ol>
+
+<div class="row" ng-repeat="item in catList.categories.data">
+  <h4><a href="#">{{item.short_name}}. {{item.name}}</a></h4>
+</div>
