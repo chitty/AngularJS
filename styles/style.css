@@ -1,3 +1,12 @@
 .my_nav {
     padding-top: 10px;
 }
+
+.content {
+    padding-top: 60px;
+}
+
+.jumbotron {
+    padding-left: 10%;
+    padding-right: 10%;
+}
