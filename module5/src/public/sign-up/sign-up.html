@@ -28,6 +28,9 @@
     </p><p>
     <input type="text" name="favoritedish" placeholder="Favorite Dish"
       ng-model="signUp.user.favoritedish">
+      <span ng-if="signUp.favoriteDishError">
+        No such menu number exists
+      </span>
     </input>
     </p>
 
@@ -36,4 +39,7 @@
           ng-click="signUp.submit()">Submit
     </button>
   </form>
+  <span ng-if="signUp.infoSaved">
+    Your information has been saved
+  </span>
 </div>
