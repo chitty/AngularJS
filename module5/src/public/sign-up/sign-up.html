@@ -1,0 +1,39 @@
+<div class="container" ng-controller="SignUpController as signUp">
+  <h2 id="menu-categories-title" class="text-center">
+    Sign Up to our Newsletter!
+  </h2>
+  <div class="text-center">
+    Dear valued customer, please sign up to our newsletter to know more about specials and events filling the form below.
+  </div>
+
+  <form name='signUpForm' class="sign-up-form" novalidate>
+    <p>
+    <input type="text" name="firstname" placeholder="First name"
+      ng-model="signUp.user.firstname"
+      required>
+    </input>
+    </p><p>
+    <input type="text" name="lastname" placeholder="Last name"
+      ng-model="signUp.user.lastname"
+      required>
+    </input>
+    </p><p>
+    <input type="email" name="email" placeholder="Email"
+      ng-model="signUp.user.email"
+      required>
+      <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+    </input>
+    </p><p>
+    <input type="text" name="favoritedish" placeholder="Favorite Dish"
+      ng-model="signUp.user.favoritedish">
+    </input>
+    </p>
+
+    <button
+          ng-disabled="signUpForm.$invalid"
+          ng-click="signUp.submit()">Submit
+    </button>
+  </form>
+</div>
