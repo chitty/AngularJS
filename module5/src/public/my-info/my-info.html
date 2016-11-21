@@ -1,0 +1,16 @@
+<div class="container" ng-controller="MyInfoController as myInfo">
+  <h2 id="menu-categories-title" class="text-center">
+    My Info
+  </h2>
+  <div class="container" ng-if="myInfo.displayInfo">
+    <div class="col-md-6">
+      <h3>{{myInfo.userInfo.firstname}} {{myInfo.userInfo.lastname}}</h3>
+      <h4>{{myInfo.userInfo.email}} </h4>
+    </div>
+    <h3>Favorite Dish</h3>
+    <menu-item menu-item="myInfo.userInfo.favoriteDish"></menu-item>
+  </div>
+  <div class="text-center" ng-if="!myInfo.displayInfo">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+</div>
