@@ -5,7 +5,8 @@
   <div class="container" ng-if="myInfo.displayInfo">
     <div class="col-md-6">
       <h3>{{myInfo.userInfo.firstname}} {{myInfo.userInfo.lastname}}</h3>
-      <h4>{{myInfo.userInfo.email}} </h4>
+      <h4>{{myInfo.userInfo.email}}</h4>
+      <h4>{{myInfo.userInfo.phone}}</h4>
     </div>
     <h3>Favorite Dish</h3>
     <menu-item menu-item="myInfo.userInfo.favoriteDish"></menu-item>

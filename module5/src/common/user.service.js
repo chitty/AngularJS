@@ -14,6 +14,7 @@ function UserService() {
     user.firstname = newUser.firstname;
     user.lastname = newUser.lastname;
     user.email = newUser.email;
+    user.phone = newUser.phone;
   };
 
   service.getUserPreferences = function() {

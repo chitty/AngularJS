@@ -11,11 +11,17 @@
     <input type="text" name="firstname" placeholder="First name"
       ng-model="signUp.user.firstname"
       required>
+    <span ng-if="signUpForm.firstname.$invalid && signUpForm.firstname.$touched">
+        First name is a required field
+    </span>
     </input>
     </p><p>
     <input type="text" name="lastname" placeholder="Last name"
       ng-model="signUp.user.lastname"
       required>
+      <span ng-if="signUpForm.lastname.$invalid && signUpForm.lastname.$touched">
+        Last name is a required field
+      </span>
     </input>
     </p><p>
     <input type="email" name="email" placeholder="Email"
@@ -24,6 +30,10 @@
       <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
         Must be a valid email address: handle@domain format
       </span>
+    </input>
+    </p><p>
+    <input type="number" name="phone" placeholder="Phone Number"
+      ng-model="signUp.user.phone">
     </input>
     </p><p>
     <input type="text" name="favoritedish" placeholder="Favorite Dish"
