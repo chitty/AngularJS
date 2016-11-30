@@ -6,50 +6,61 @@
     Dear valued customer, please sign up to our newsletter to know more about specials and events filling the form below.
   </div>
 
-  <form name='signUpForm' class="sign-up-form" novalidate>
-    <p>
-    <input type="text" name="firstname" placeholder="First name"
-      ng-model="signUp.user.firstname"
-      required>
-    <span ng-if="signUpForm.firstname.$invalid && signUpForm.firstname.$touched">
-        First name is a required field
-    </span>
-    </input>
-    </p><p>
-    <input type="text" name="lastname" placeholder="Last name"
-      ng-model="signUp.user.lastname"
-      required>
-      <span ng-if="signUpForm.lastname.$invalid && signUpForm.lastname.$touched">
-        Last name is a required field
+  <form name='signUpForm' novalidate>
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" class="form-control" name="firstname" placeholder="i.e. John"
+        ng-model="signUp.user.firstname"
+        required>
+      <span ng-if="signUpForm.firstname.$invalid && signUpForm.firstname.$touched">
+          First name is a required field
       </span>
-    </input>
-    </p><p>
-    <input type="email" name="email" placeholder="Email"
-      ng-model="signUp.user.email"
-      required>
-      <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
-        Must be a valid email address: handle@domain format
-      </span>
-    </input>
-    </p><p>
-    <input type="number" name="phone" placeholder="Phone Number"
-      ng-model="signUp.user.phone">
-    </input>
-    </p><p>
-    <input type="text" name="favoritedish" placeholder="Favorite Dish"
-      ng-model="signUp.user.favoritedish">
-      <span ng-if="signUp.favoriteDishError">
-        No such menu number exists
-      </span>
-    </input>
-    </p>
+      </input>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" class="form-control" name="lastname" placeholder="i.e. Jackson"
+        ng-model="signUp.user.lastname"
+        required>
+        <span ng-if="signUpForm.lastname.$invalid && signUpForm.lastname.$touched">
+          Last name is a required field
+        </span>
+      </input>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" placeholder="i.e. john@gmail.com"
+        ng-model="signUp.user.email"
+        required>
+        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+      </input>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="number" class="form-control" name="phone" placeholder="i.e. 3053389296"
+        ng-model="signUp.user.phone">
+      </input>
+    </div>
+    <div class="form-group">
+      <label for="favoritedish">Favorite Dish</label>
+      <input type="text" class="form-control" name="favoritedish" placeholder="i.e. SP1"
+        ng-model="signUp.user.favoritedish">
+        <span ng-if="signUp.favoriteDishError">
+          No such menu number exists
+        </span>
+      </input>
+    </div>
 
     <button
+          class="btn btn-info"
           ng-disabled="signUpForm.$invalid"
           ng-click="signUp.submit()">Submit
     </button>
   </form>
-  <span ng-if="signUp.infoSaved">
-    Your information has been saved
-  </span>
+  <div class="alert alert-success" role="alert" ng-if="signUp.infoSaved">
+    <b>Your information has been saved</b><br>
+    Thank you!
+  </div>
 </div>
